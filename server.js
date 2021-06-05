@@ -30,6 +30,8 @@ const axios = require('axios')
 const app = express()
 const port = process.env.PORT || 3000
 
+app.set('view engine', 'ejs')
+
 app.get('/', function(req, res) {
     axios.get('http://xkcd.com/251/info.0.json')
     .then(response => {
@@ -42,15 +44,18 @@ app.get('/', function(req, res) {
 
 app.get('/:comicNo', function(req, res) {
     const comicId = req.params.comicNo
-    res.send(comicId)
+    let body = ''
     
     axios.get('http://xkcd.com/' + req.params.comicNo + '/info.0.json')
     .then(response => {
+    res.render('pages/index', response.data)
     console.log(response.data)
     })
     .catch(error => {
         console.log(error)
     })
+
+    
 })
 
 app.listen(port)
