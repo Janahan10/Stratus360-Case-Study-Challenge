@@ -12,14 +12,14 @@
 <main>
   <div class="jumbotron">
     <h1><%= safe_title %></h1>
+    <p>Comic #: <%= num %></p>
     <p>Date Created: <%= month + '/' + day + '/' + year %></p>
+    <p>Number of times visted: <%= num_times %></p>
     <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" alt=<%= alt %> src=<%= img %>>
-  </div>
-</main>
+</div>
 
-<footer>
-  <%- include('../partials/footer'); %>
-</footer>
+
+</main>
 
 </body>
 </html>

@@ -1,10 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul style="display: flex; justify-content: space-between;" class="navbar-nav">
-      <li class="nav-item">
-        <a style="text-align: left;" class="nav-link" href="/">Next</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Prev</a>
-      </li>
+      
+        <button id='next' name='next' type='submit', value=Next>Next</button>
+    
+        <button id='prev' type='submit', value=Previous>Prev</button>
+        
     </ul>
+
+    <script>
+        $("#next").click(function() {
+            $.get('/nextpage', function() {
+                console.log("working")
+            })
+        }, 'json')
+    </script>
   </nav>
